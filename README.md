@@ -17,7 +17,7 @@ Clone the repo and type in a terminal:
 Ussage (within softimage/maya)
 ------------------------------
 
-    from wishlib import anchor
+    from wishlib import show_qt
     from hard_reload import HardReload
 
-    HardReload.exec_(anchor)
+    show_qt(HardReload, modal=True)
