@@ -1,5 +1,5 @@
 import sys
-from wishlib.qt import QtGui, QtCore
+from PySide import QtGui, QtCore
 
 
 class HardReload(QtGui.QDialog):
@@ -30,7 +30,24 @@ class HardReload(QtGui.QDialog):
         super(HardReload, self).close(*args, **kwds)
 
 
+def show():
+    parent = QtGui.QApplication.activeWindow()
+    if parent:
+        _ = parent.parent()
+        while _:
+            parent = _
+            _ = parent.parent()
+    w = HardReload(parent)
+    position_window(w)
+    w.exec_()
+
+
+def position_window(window):
+    pos = QtGui.QCursor.pos()
+    window.move(pos.x(), pos.y())
+
+
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
-    HardReload().exec_()
+    show()
     sys.exit()

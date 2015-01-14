@@ -1,23 +1,29 @@
 Hard_Reload
 ===========
-Minimal GUI tool (qt based) used to hard reload python packages, it features
-autocompletion and might be compatible with softimage (through pyqtforsoftimage)
-and maya.
 
-Dependencies
--------------
-- [wishlib](http://github.com/csaez/wishlib)
+`hard_reload` is a simple qt menu for flushing python packages from memory on
+the fly, it features autocompletion and should be used within Autodesk Maya
+(it's quite useful for develoment!).
+
 
 Installation
 ------------
-Clone the repo and type in a terminal:
 
-    python setup.py install
+Copy or symlink `hard_reload.py` to your maya/scripts directory __or__ clone
+this repo and install the package by typing in a terminal:
 
-Ussage (within softimage/maya)
-------------------------------
+```bash
+python setup.py install
+```
 
-    from wishlib import show_qt
-    from hard_reload import HardReload
+> Last method might require root access
 
-    show_qt(HardReload, modal=True)
+Usage
+-----
+
+Once installed you can launch `hard_reload` by typing:
+
+```python
+import hard_reload
+hard_reload.show()
+```
