@@ -48,7 +48,11 @@ def position_window(window):
     window.move(pos.x(), pos.y())
 
 
-if __name__ == "__main__":
-    app = QtGui.QApplication(sys.argv)
+def __main__():
+    QtGui.QApplication(sys.argv)
     show()
     sys.exit()
+
+
+if __name__ == "__main__":
+    __main__()
