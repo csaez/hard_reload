@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import sys
 from PySide import QtGui, QtCore
 

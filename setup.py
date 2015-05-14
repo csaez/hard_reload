@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 
-# Copyright (c) 2014 Cesar Saez
+# Copyright (c) 2015 Cesar Saez
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -26,11 +26,11 @@ from setuptools import setup, find_packages
 
 setup(
     name="hard_reload",
-    version="0.1.0",
+    version="0.2.0",
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     author="Cesar Saez",
-    author_email="cesarte@gmail.com",
-    description="",
+    author_email="hi@cesarsaaez.me",
+    description="Flush selected python modules in memory.",
     url="http://github.com/csaez/hard_reload",
     license="The MIT License",
 )
