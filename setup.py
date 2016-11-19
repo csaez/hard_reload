@@ -20,17 +20,15 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-from ez_setup import use_setuptools
-use_setuptools()
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
     name="hard_reload",
-    version="0.2.0",
-    packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
+    version="0.3.0",
     author="Cesar Saez",
     author_email="hi@cesarsaaez.me",
-    description="Flush selected python modules in memory.",
+    description="Simple GUI to flush selected python modules in memory.",
     url="http://github.com/csaez/hard_reload",
     license="The MIT License",
+    py_modules=["hard_reload"],
 )
