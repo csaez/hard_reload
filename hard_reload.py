@@ -1,22 +1,36 @@
-#!/usr/bin/env python
 import sys
-from PySide import QtGui, QtCore
+
+# qt bindings
+for each in ("PySide", "PySide2"):
+    try:
+        _temp = __import__(each, locals(), globals(), ("QtGui", "QtCore"), -1)
+        QtGui = _temp.QtGui
+        QtCore = _temp.QtCore
+        if each == "PySide2":
+            _temp = __import__(each, locals(), globals(), ("QtWidgets", ), -1)
+            QtWidgets = _temp.QtWidgets
+        else:
+            QtWidgets = QtGui
+    except ImportError:
+        pass
+    else:
+        break
 
 
-class HardReload(QtGui.QDialog):
+class HardReload(QtWidgets.QDialog):
 
     def __init__(self, parent=None):
         super(HardReload, self).__init__(parent)
         self.setWindowTitle("Hard Reload")
 
-        self.ui_lineEdit = QtGui.QLineEdit(self)
-        ui_completer = QtGui.QCompleter(
+        self.ui_lineEdit = QtWidgets.QLineEdit(self)
+        ui_completer = QtWidgets.QCompleter(
             [i.split(".")[0] for i in sys.modules.keys()], self)
-        ui_completer.setCompletionMode(QtGui.QCompleter.InlineCompletion)
+        ui_completer.setCompletionMode(QtWidgets.QCompleter.InlineCompletion)
         ui_completer.setCaseSensitivity(QtCore.Qt.CaseInsensitive)
         self.ui_lineEdit.setCompleter(ui_completer)
 
-        hbox = QtGui.QHBoxLayout()
+        hbox = QtWidgets.QHBoxLayout()
         hbox.addWidget(self.ui_lineEdit)
         self.setLayout(hbox)
 
@@ -34,7 +48,7 @@ class HardReload(QtGui.QDialog):
 
 
 def get_parent():
-    parent = QtGui.QApplication.activeWindow()
+    parent = QtWidgets.QApplication.activeWindow()
     if parent:
         _ = parent.parent()
         while _:
@@ -56,7 +70,7 @@ def show():
 
 
 def __main__():
-    QtGui.QApplication(sys.argv)
+    QtWidgets.QApplication(sys.argv)
     show()
     sys.exit()
 
