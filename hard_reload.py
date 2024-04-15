@@ -3,8 +3,12 @@ import sys
 
 try:
     from PySide6 import QtGui, QtCore, QtWidgets
-except:
-    from PySide2 import QtGui, QtCore, QtWidgets
+except ImportError:
+    try:
+        from PySide2 import QtGui, QtCore, QtWidgets
+    except ImportError:
+        from PySide import QtGui, QtCore
+        QtWidgets = QtGui
 
 
 class HardReload(QtWidgets.QDialog):
@@ -56,6 +60,15 @@ def hard_reload(module_name):
 def show():
     w = HardReload(get_parent())
     w.move_window()
-    w.exec_()
+    w.exec()
     
-show()
+
+def __main__():
+    QtWidgets.QApplication(sys.argv)
+    show()
+    sys.exit()
+
+
+if __name__ == "__main__":
+    __main__()
+
