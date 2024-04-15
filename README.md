@@ -1,9 +1,10 @@
 Hard_Reload
 ===========
 
-`hard_reload` is a simple qt menu for flushing python packages from memory on
-the fly, it features autocompletion and should be used within Autodesk Maya
-(it's quite useful for develoment!).
+`hard_reload` is a Maya Qt widget for reloading python packages, useful for develoment!  
+Type in the module name you want to reload, and press enter.
+
+![image](https://github.com/csaez/hard_reload/assets/3758308/f9c244e9-3f9e-4b59-994f-1fd35a62a128)
 
 
 Installation
