@@ -1,20 +1,10 @@
 import sys
 
-# qt bindings
-for each in ("PySide", "PySide2"):
-    try:
-        _temp = __import__(each, locals(), globals(), ("QtGui", "QtCore"), -1)
-        QtGui = _temp.QtGui
-        QtCore = _temp.QtCore
-        if each == "PySide2":
-            _temp = __import__(each, locals(), globals(), ("QtWidgets", ), -1)
-            QtWidgets = _temp.QtWidgets
-        else:
-            QtWidgets = QtGui
-    except ImportError:
-        pass
-    else:
-        break
+
+try:
+    from PySide6 import QtGui, QtCore, QtWidgets
+except:
+    from PySide2 import QtGui, QtCore, QtWidgets
 
 
 class HardReload(QtWidgets.QDialog):
@@ -67,13 +57,5 @@ def show():
     w = HardReload(get_parent())
     w.move_window()
     w.exec_()
-
-
-def __main__():
-    QtWidgets.QApplication(sys.argv)
-    show()
-    sys.exit()
-
-
-if __name__ == "__main__":
-    __main__()
+    
+show()
