@@ -60,7 +60,7 @@ def hard_reload(module_name):
 def show():
     w = HardReload(get_parent())
     w.move_window()
-    w.exec()
+    w.exec_()
     
 
 def __main__():
